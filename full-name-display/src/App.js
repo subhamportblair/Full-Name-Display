@@ -28,7 +28,7 @@ export default function App() {
           Submit
         </button>
       </form>
-      <p></p>
+      
       {isSubmit && fname && sname && (
         <p>
           Full Name : {fname} {sname}
