@@ -30,9 +30,9 @@ export default function App() {
       </form>
       <p></p>
       {isSubmit && fname && sname && (
-        <div>
+        <p>
           Full Name : {fname} {sname}
-        </div>
+        </p>
       )}
     </div>
   );
