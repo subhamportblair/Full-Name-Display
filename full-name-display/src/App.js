@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function App() {
   const [fname, setFname] = useState();
   const [sname, setSname] = useState();
+  const [isSubmit,SetisSubmit] = useState(false);
 
   return (
     <div>
@@ -10,29 +11,25 @@ export default function App() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setFname(firstname.value);
-          setSname(lastname.value);
+          SetisSubmit(true)
         }}
       >
         <p style={{ display: "block" }}>
           <label htmlFor="firstname">First Name: </label>
-          <input type="text" id="firstname" name="firstname" required />
+          <input type="text" id="firstname" name="firstname" required onChange={(e) => {
+            setFname(e.target.value)}}/>
         </p>
         <p style={{ display: "block" }}>
           <label htmlFor="lastname">Last Name:</label>
-          <input type="text" id="lastname" name="lastname" required />
+          <input type="text" id="lastname" name="lastname" required onChange={(e) => {
+            setSname(e.target.value)}}/>
         </p>
-        <button
-          onClick={() => {
-           
-            console.log(fname, sname);
-          }}
-        >
+        <button type="submit">
           Submit
         </button>
       </form>
       <p></p>
-      {fname && sname && (
+      {isSubmit && fname && sname && (
         <div>
           Full Name : {fname} {sname}
         </div>
