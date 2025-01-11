@@ -16,12 +16,12 @@ export default function App() {
       >
         <p style={{ display: "block" }}>
           <label htmlFor="firstname">First Name: </label>
-          <input type="text" id="firstname" name="firstname" required onChange={(e) => {
+          <input type="text" pattern="[A-Za-z]*" title="Letters only" id="firstname" name="firstname" required onChange={(e) => {
             setFname(e.target.value)}}/>
         </p>
         <p style={{ display: "block" }}>
           <label htmlFor="lastname">Last Name:</label>
-          <input type="text" id="lastname" name="lastname" required onChange={(e) => {
+          <input type="text" pattern="[A-Za-z]*" title="Letters only" id="lastname" name="lastname" required onChange={(e) => {
             setSname(e.target.value)}}/>
         </p>
         <button type="submit">
