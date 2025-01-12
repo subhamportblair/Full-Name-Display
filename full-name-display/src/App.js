@@ -4,6 +4,8 @@ export default function App() {
   const [fname, setFname] = useState();
   const [sname, setSname] = useState();
   const [isSubmit,SetisSubmit] = useState(false);
+  const [submittedSname, setSubmitSname]=useState();
+  const [submittedfname, setSubmittedfname]=useState()
 
   return (
     <div>
@@ -12,6 +14,8 @@ export default function App() {
         onSubmit={(e) => {
           e.preventDefault();
           SetisSubmit(true)
+          setSubmitSname(sname);
+          setSubmittedfname(fname);
         }}
       >
         <p style={{ display: "block" }}>
@@ -29,9 +33,9 @@ export default function App() {
         </button>
       </form>
       
-      {isSubmit && fname && sname && (
+      {isSubmit && submittedSname && submittedfname && (
         <p>
-          Full Name : {fname} {sname}
+          Full Name : {submittedfname} {submittedSname}
         </p>
       )}
     </div>
