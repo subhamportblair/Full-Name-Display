@@ -39,7 +39,7 @@ export default function App() {
       
       {isSubmit && submittedSname && submittedfname && (
         <p>
-          Full Name : {submittedfname} {submittedSname}
+          Full Name : {fullName}
         </p>
       )}
     </div>
