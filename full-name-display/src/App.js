@@ -8,6 +8,7 @@ export default function App() {
   const [submittedfname, setSubmittedfname]=useState();
   const [fullName, setFullName] = useState("");
 
+  
 
   return (
     <div>
@@ -15,10 +16,10 @@ export default function App() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          SetisSubmit(true)
+          setFullName(`${fname} ${sname}`);
           setSubmitSname(sname);
           setSubmittedfname(fname);
-          setFullName(`${fname} ${sname}`);
+          SetisSubmit(true)
         }}
       >
         <p style={{ display: "block" }}>
