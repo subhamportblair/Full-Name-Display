@@ -5,7 +5,9 @@ export default function App() {
   const [sname, setSname] = useState();
   const [isSubmit,SetisSubmit] = useState(false);
   const [submittedSname, setSubmitSname]=useState();
-  const [submittedfname, setSubmittedfname]=useState()
+  const [submittedfname, setSubmittedfname]=useState();
+  const [fullName, setFullName] = useState("");
+
 
   return (
     <div>
@@ -16,6 +18,7 @@ export default function App() {
           SetisSubmit(true)
           setSubmitSname(sname);
           setSubmittedfname(fname);
+          setFullName(`${fname} ${sname}`);
         }}
       >
         <p style={{ display: "block" }}>
