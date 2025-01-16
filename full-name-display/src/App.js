@@ -1,14 +1,8 @@
 import { useState } from "react";
 
 export default function App() {
-  const [fname, setFname] = useState();
-  const [sname, setSname] = useState();
-  const [isSubmit,SetisSubmit] = useState(false);
-  const [submittedSname, setSubmitSname]=useState();
-  const [submittedfname, setSubmittedfname]=useState();
-  const [fullName, setFullName] = useState("");
-
-  
+  const [fullName, setFullName] = useState({ fname: "", lname: "" });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   return (
     <div>
@@ -16,30 +10,41 @@ export default function App() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setFullName(`${fname} ${sname}`);
-          setSubmitSname(sname);
-          setSubmittedfname(fname);
-          SetisSubmit(true)
+          if (fullName.fname && fullName.lname) {
+            setIsSubmitted(true);
+          }
         }}
       >
         <p style={{ display: "block" }}>
           <label htmlFor="firstname">First Name: </label>
-          <input type="text" id="firstname" name="firstname" required onChange={(e) => {
-            setFname(e.target.value)}}/>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            required
+            onChange={(e) =>
+              setFullName((prev) => ({ ...prev, fname: e.target.value }))
+            }
+          />
         </p>
         <p style={{ display: "block" }}>
           <label htmlFor="lastname">Last Name:</label>
-          <input type="text" id="lastname" name="lastname" required onChange={(e) => {
-            setSname(e.target.value)}}/>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            required
+            onChange={(e) =>
+              setFullName((prev) => ({ ...prev, lname: e.target.value }))
+            }
+          />
         </p>
-        <button type="submit">
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
-      
-      {isSubmit && submittedSname && submittedfname && (
+
+      {isSubmitted && (
         <p>
-          Full Name : {fullName}
+          Full Name: {fullName.fname} {fullName.lname}
         </p>
       )}
     </div>
